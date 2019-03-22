@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students list</title>
+    <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}">
+</head>
+
+<body>
+
+<h1 th:text="${scount}"></h1>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
+        <td th:text="${student.email}"></td>
+        <td><a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+
+<a href="/deleteall" class="btn btn-danger">Delete all</a>
+
+<a href="/add" class="btn btn-success">Add Student</a>
+
+</body>
+
+</html>
