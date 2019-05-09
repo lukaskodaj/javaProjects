@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>My note</title>
+    <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" href="../static/note-detail.css" th:href="@{/note-detail.css}">
+    <link type="text/css" rel="stylesheet" href="../static/basic.css" th:href="@{/basic.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+<a class="note-deleteLink" th:href="@{/note-delete/{id}(id=${note.id})}" onclick=" return confirm('Would you like delete item?');"><i class="fas fa-trash-alt"></i></a>
+<a class="note-myNotesLink" th:href="@{/my-notes}"><i class="fas fa-book-open"></i></a>
+
+<!--<p th:text="${message != ''} ? ${message} : ''"></p>-->
+<p th:text="${message}"></p>
+<form action="#" th:action="@{/note-edit}" th:object="${note}" method="post">
+
+    <input th:field="*{id}" type="hidden" id="custId" th:value="${id}">
+
+    <div class="form-group edit-noteTitle">
+        <label>TITLE</label>
+        <input class="form-control" type="text" id="title" th:field="*{title}" th:placeholder="${note.title}" th:required="required">
+    </div>
+
+    <div class="form-group edit-noteType">
+        <label for="type">Type</label>
+        <select th:field="*{type}" class="form-control" id="type">
+            <option th:value="'c-new'" th:text="New" class="c-new"></option>
+            <option th:value="'c-process'" th:text="In-process" class="c-process"></option>
+            <option th:value="'c-done'" th:text="Done" class="c-done"></option>
+        </select>
+    </div>
+
+    <div class="container-fluid">
+
+        <div id="productEditor" class="productEditor">
+
+            <div id="extraDescriptionText">
+
+                <div class="toolbar">
+
+                    <button class="tool-items fa fa-underline" type="button"
+                            onclick="document.execCommand('underline', false, '');">
+                    </button>
+
+                    <button class="tool-items fa fa-italic" type="button"
+                            onclick="document.execCommand('italic', false, '');">
+                    </button>
+
+
+                    <button class="tool-items fa fa-bold" type="button"
+                            onclick="document.execCommand('bold', false, '');">
+                    </button>
+
+                </div>
+
+                <div class="centerExtraDescriptionText" >
+                    <div th:classappend="${note.type}" th:utext="${note.note}" id="editorExtraDescriptionText" class="editorExtraDescriptionText" contenteditable>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <textarea id="textAreaExtraDescriptionText" th:field="*{note}" style="display: none;" onkeyup="textAreaAdjust(this)" th:required="required"></textarea>
+
+            <input class="btn btn-success editorSaveButton" type="submit" onclick="redrawEditorExtraDescriptionText()"
+                   value="Save">
+
+        </div>
+
+    </div>
+
+</form>
+
+<script>
+    function textAreaAdjust(o) {
+        o.style.height = "1px";
+        o.style.height = (25 + o.scrollHeight) + "px";
+    }
+
+    function redrawEditorExtraDescriptionText() {
+        // console.log(document.getElementById('editorExtraDescriptionText').innerHTML);
+        document.getElementById('textAreaExtraDescriptionText').innerHTML = document.getElementById('editorExtraDescriptionText').innerHTML;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+    background-image: url("noticeBoard.jpg");
+}
+
+a.note-addNoteLink {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+a.note-addNoteLink i {
+    color: green;
+    font-size: 23px;
+}
+
+a.note-addNoteLink i:hover {
+    color: gray;
+}
+
+a.note-SignOutLink {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+a.note-SignOutLink i {
+    color: black;
+    font-size: 23px;
+}
+
+a.note-SignOutLink i:hover {
+    color: gray;
+}
+
+.note-gutters {
+    padding: 3px !important;
+}
+
+.note-title h5 {
+    display: inline-block;
+}
+
+.note-title a i {
+    color: black;
+}
+
+.note-title a i:hover {
+    color: red;
+}
+
+.filter-form {
+    text-align: center;
+}
+
+.filter-button {
+    height: 39px;
+}
+
+select.filter-type {
+    width: 300px;
+    height: 30px;
+}
+
+.filter-notesType {
+    display: inline-block;
+}
+
+select.filter-order {
+    position: relative;
+    top: 2px;
+    border: 1px solid #aaa;
+    width: 300px;
+    height: 39px;
+}
+
+.filter-notesOrder {
+    display: inline-block;
+}
+
+/*select2 start*/
+.select2-selection__choice[title="New"] {
+    background-color: lightcoral !important;
+    color: white !important;
+}
+
+.select2-selection__choice[title="In-process"] {
+    background-color: lightgoldenrodyellow !important;
+    color: black !important;
+}
+
+.select2-selection__choice[title="Done"] {
+    background-color: lightgreen !important;
+    color: black !important;
+}
+/*select2 end*/

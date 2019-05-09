@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" href="../static/sign.css" th:href="@{/sign.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+<h2 class="text-center text-dark">Registration</h2>
+
+<a class="note-signInLink" th:href="@{/}"><i class="fas fa-arrow-circle-left"></i></a>
+
+<div class="form-container">
+
+    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+
+        <div class="form-group">
+            <label for="firstName">Name</label>
+            <input class="form-control" type="text" th:field="*{firstName}" id="firstName"
+                   aria-describedby="firstNameHelp" placeholder="First name" th:required="required">
+            <small id="firstNameHelp" class="form-text text-muted">Enter your name.</small>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Surname</label>
+            <input class="form-control" type="text" th:field="*{lastName}" id="lastName" aria-describedby="lastNameHelp"
+                   placeholder="Surname" th:required="required">
+            <small id="lastNameHelp" class="form-text text-muted">Enter your surname.</small>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" th:field="*{email}" id="email" aria-describedby="emailHelp"
+                   placeholder="Email" th:required="required">
+            <small id="emailHelp" class="form-text text-muted">Enter you existing email address.</small>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" th:field="*{password}" id="password" aria-describedby="passwordHelp"
+                   placeholder="Password" th:required="required">
+            <small id="passwordHelp" class="form-text text-muted">Recommended password lenght is minimal 10 letters.</small>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+
+        <input class="btn btn-success btn-sign-up" type="submit" value="Sign up">
+
+    </form>
+
+</div>
+
+</body>
+</html>

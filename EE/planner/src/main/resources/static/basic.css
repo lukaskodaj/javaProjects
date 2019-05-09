@@ -1,0 +1,14 @@
+.c-done {
+    background-color: lightgreen;
+    color: black;
+}
+
+.c-process {
+    background-color: lightgoldenrodyellow;
+    color: black;
+}
+
+.c-new {
+    background-color: lightcoral;
+    color: white;
+}

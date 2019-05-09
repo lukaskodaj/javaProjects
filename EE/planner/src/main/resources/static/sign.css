@@ -1,0 +1,32 @@
+a.note-signInLink {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+}
+
+a.note-signInLink i {
+    color: black;
+    font-size: 23px;
+}
+
+a.note-signInLink i:hover {
+    color: gray;
+}
+
+.btn-sign-in , .btn-sign-up{
+    width: 120px;
+    display: block;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: whitesmoke;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}

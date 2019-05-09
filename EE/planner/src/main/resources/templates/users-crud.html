@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Používatelia</title>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}">
+</head>
+<body>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+<a href="/add" class="btn btn-success">Pridať používateľa</a>
+
+</body>
+</html>

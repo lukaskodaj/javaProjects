@@ -1,0 +1,135 @@
+
+body {
+    /*background-image: url("notesFoto2.jpg");*/
+    background-color: #F4EB90;
+}
+
+a.note-deleteLink {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+}
+
+a.note-deleteLink i {
+    color: red;
+    font-size: 23px;
+}
+
+a.note-deleteLink i:hover {
+    color: gray;
+}
+
+a.note-myNotesLink {
+    position: fixed;
+    left: 5px;
+    top: 5px;
+}
+
+a.note-myNotesLink i {
+    color: #218838;
+    font-size: 23px;
+}
+
+a.note-myNotesLink i:hover {
+    color: gray;
+}
+
+.edit-noteTitle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.edit-noteTitle label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.edit-noteType {
+    width: 300px;
+    margin-left: 22px;
+}
+
+.edit-noteType select:hover, .edit-noteType select:active {
+    outline-color: red
+}
+
+.edit-noteType label {
+    font-weight: bold;
+}
+
+.edit-noteType select option.c-new:hover {
+    background-color: white;
+}
+
+/*editor start*/
+.toolbar {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(20px,40px));
+    color: rgb(0, 0, 0);
+    grid-gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items:center;
+}
+
+.tool-items {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    padding-top: .6rem;
+    padding-bottom:.6rem;
+    cursor: pointer;
+    color: white;
+}
+
+.tool-items:hover {
+    box-shadow: none;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.centerExtraDescriptionText {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.editorExtraDescriptionText {
+    width: 100%;
+    height: 10%;
+    margin: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    box-shadow: 0 .1rem .4rem black;
+    border: 1px solid black;
+    overflow-y: auto;
+    border-radius: 10px;
+
+}
+
+.productEditor {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
+}
+
+.productEditor form {
+    width: 100%;
+}
+
+.editorSaveButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+/*editor end*/
